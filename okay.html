@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" /> <!-- reset css -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<style>
+    body{ background-color: ivory; }
+    canvas{border:1px solid red;}
+</style>
+
+<script>
+$(function(){
+
+    onload = function(){
+    	ctx.rect(0,0,square.sizeX,square.sizeY);
+		ctx.fillStyle = 'red';
+		ctx.fill();
+    };
+
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    var canvasOffset=$("#canvas").offset();
+    var offsetX=canvasOffset.left;
+    var offsetY=canvasOffset.top;
+    var canvasWidth=canvas.width;
+    var canvasHeight=canvas.height;
+    var isDragging=false;
+    var square = {
+    		x: 0,
+    		y: 0,
+    		sizeX: 50,
+    		sizeY: 50
+    }
+    function handleMouseDown(e){
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // set the drag flag - figure out to only drag if making contact
+      if(hits([e.clientX-offsetX,e.clientY-offsetY],[1,1],[square.x,square.y],[50,50])){
+      	isDragging=true;
+      }
+   	}
+
+    function handleMouseUp(e){
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // clear the drag flag
+      isDragging=false;
+    }
+
+    function handleMouseOut(e){
+      canMouseX=parseInt(e.clientX-offsetX);
+      canMouseY=parseInt(e.clientY-offsetY);
+      // user has left the canvas, so clear the drag flag
+      isDragging=false;
+    }
+
+    function handleMouseMove(e){
+      if(isDragging){
+    	canMouseX=parseInt(e.clientX-offsetX);
+        canMouseY=parseInt(e.clientY-offsetY);
+        ctx.clearRect(0,0,canvasWidth,canvasHeight);
+        ctx.fillRect(canMouseX-25,canMouseY-25,square.sizeX,square.sizeY);
+        square.x = canMouseX-25;
+        square.y = canMouseY-25;
+      }
+    }
+
+    $("#canvas").mousedown(function(e){handleMouseDown(e);});
+    $("#canvas").mousemove(function(e){handleMouseMove(e);});
+    $("#canvas").mouseup(function(e){handleMouseUp(e);});
+    $("#canvas").mouseout(function(e){handleMouseOut(e);});
+
+}); // end $(function(){});
+
+function collides(x, y, r, b, x2, y2, r2, b2) {
+    return !(r <= x2 || x > r2 ||
+             b <= y2 || y > b2);
+}
+
+function hits(pos, size, pos2, size2) {  //tests if objects are touching or not
+    return collides(pos[0], pos[1],
+                    pos[0] + size[0], pos[1] + size[1],
+                    pos2[0], pos2[1],
+                    pos2[0] + size2[0], pos2[1] + size2[1]);
+}
+</script>
+
+</head>
+
+<body>
+    <canvas id="canvas" width=400 height=300></canvas>
+</body>
+</html>

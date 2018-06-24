@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!--  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+<head>
+<title>Change</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+    <div id="game-over-overlay">
+    </div>
+    <img src="imgs/G000M803.png" id="dirt" width="128" height="128">
+	<div id="game-start">
+		<h1>Welcome</h1>
+		<button id="play-start">Play</button>
+	</div>	
+    <div id="game-over">
+      <h1>GAME OVER</h1>
+      <button id="play-again">Play Again</button>
+    </div>
+    <div id="game-pause">
+    	<h1> Game Paused</h1>
+    	<button id="play-pause">Continue</button>
+    	<button id="restart">Restart</button>
+    </div>
+        <canvas id="gameCanvas">    
+        </canvas><div id="next">
+        <p><a href="#" class="play">Play</a>
+		<a href="#" class="pause">Pause</a>
+        <!--  <a href="#" class="restart">Restart:</a> -->
+        <label class="radio-inline" onfocus="blur">
+      		<input type="radio" name="optradio" value="false">Rank Play
+    		</label>
+    		<label class="radio-inline">
+      		<input checked="checked" type="radio" name="optradio" value="true">Free Play
+        </label></p>
+        <p>
+        <h4 id="time">Elapsed Time: 0:00:00</h4>
+        <h4 id="hit">Hits:</h4>
+        <h4 id="miss">Health:</h4>
+        <h4 id="zone">Zone:</h4>
+        <h4 id="browser">Browser:</h4></div>
+    </p><div id="saveName">
+    <form>
+    	<label for="userid">Enter name to save score:</label>
+    	<input type="text" name ="userid" id="userid" value=" " >
+    	<input type="button" value ="Submit" onclick="PostData()" > or <a href="#" class="restart">Restart</a>.
+    </form>
+	</div><div id="nameSaved"></div> <!--submit scorer name here-->
+	<!--
+        <audio controls="controls" preload="auto" loop id="music">
+  			<source src="audio/dreams.ogg" type="audio/ogg">
+  			<source src="audio/dreams.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+        <audio preload="auto" id ="laser">
+        	<source src="laser.ogg" type="audio/ogg">
+        	<source src="laser.mp3" type ="audio/mp3">
+        </audio>  
+        <audio preload="auto" id ="laser1">
+        	<source src="laser1.ogg" type="audio/ogg">
+        	<source src="laser1.mp3" type ="audio/mp3">
+        </audio> 
+        <audio preload="auto" id ="laser2">
+        	<source src="laser2.ogg" type="audio/ogg">
+        	<source src="laser2.mp3" type ="audio/mp3">
+        </audio>
+        <audio preload="auto" id ="laser3">
+        	<source src="laser3.ogg" type="audio/ogg">
+        	<source src="laser3.mp3" type ="audio/mp3">
+        </audio>
+        <audio preload="auto" id ="gameover">
+        	<source src="gameover.ogg" type="audio/ogg">
+        	<source src="gameover.mp3" type ="audio/mp3">
+        </audio>
+        <audio preload="auto" id ="missed">
+        	<source src="missed.ogg" type="audio/ogg">
+        	<source src="missed.mp3" type ="audio/mp3">
+        </audio>
+        <audio preload="auto" id ="collision">
+        	<source src="collision.ogg" type="audio/ogg">
+        	<source src="collision.mp3" type ="audio/mp3">
+        </audio> -->
+    <script type="text/javascript" src="game.js"></script>
+  </body>
+</html>

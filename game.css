@@ -1,0 +1,103 @@
+#game-over, #game-over-overlay, #game-pause,#game-start {
+    margin: auto;
+    width: 475px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+#game-over-overlay {
+
+}
+#game-over, #game-pause,#game-start{
+    height: 300px;
+    text-align: center;
+    color: black;
+}
+
+#game-over h1 ,#game-pause h1,#game-start h1{
+    font-size: 3em;
+    font-family: sans-serif;
+}
+
+#game-over button ,#game-pause button, #game-start button{
+    font-size: 1.5em;
+    color: black;
+}
+a:link {
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+}
+a:visited {
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+}
+a:active{
+	color:000000;
+	background-Color:transparent;
+	text-decoration:none;	
+}
+#ball {
+		
+		background-color: #555;
+		color: white;
+		border: solid 1px #666;
+		border-radius: 50%;
+		width: 50px;
+		height:50px;
+		position:absolute;
+}
+/*
+#square{
+    position : absolute;
+    width : 40px;
+    height : 40px;
+	left: 50px;
+	top: 100px;
+    background-color : red;	
+}*/
+#gameCanvas{
+	background-color:none;
+	margin: auto;
+/*	height: 100%;
+	width: 99%;*/
+	border: 2px solid #000000;
+	display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#next{
+	margin:5px;	
+}
+#saveName{
+	margin:5px;	
+}
+#nameSaved{
+	margin:5px;		
+}
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover{
+	outline: 0;	
+	color: #555555;
+	background-color: #ffffff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+	cursor: default;
+}
+#music{
+	align:right;
+}
+body{
+}
+h3{		
+}
+#dirt{
+	display: none;
+}
